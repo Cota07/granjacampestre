@@ -1,0 +1,351 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to bottom right, #000000, #706f6f, #ffffff);
+  font-size: 16px;
+}
+
+/* Header */
+header {
+  background-color: rgba(96, 96, 96, 0.5);
+  border-radius: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logocampestre {
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logocampestre:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  background-color: #1e1e2f;
+  border-radius: 30px;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #555592;
+}
+
+/* Seções */
+.section {
+  scroll-margin-top: 120px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Fundo principal */
+.fundo {
+  position: relative;
+  background-image: url('fotoclassificadora.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fundo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+  z-index: 1;
+}
+
+.fundo-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Fundo 2 */
+.fundo2 {
+  position: relative;
+  background-image: url('fotogranja.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fundo2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+  z-index: 1;
+}
+
+.fundo2-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Hero */
+.hero {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  padding: 40px 20px;
+}
+
+/* Espaço */
+.espaco {
+  padding: 50px;
+}
+
+/* Sobre */
+.conteudo-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.video-container {
+  flex: 1 1 50%;
+  max-width: 600px;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sobre-texto {
+  flex: 1 1 45%;
+  background: linear-gradient(to right, #f9f9f9, #eaeaea);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.sobre-texto h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.sobre-texto p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Produtos */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product img {
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
+
+/* Galeria e depoimentos */
+.section.gallery,
+.section.testimonials {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 40px 20px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.section.gallery h2,
+.section.testimonials h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.section.testimonials p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.gallery-container {
+  max-width: 1000px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Contato */
+.contato-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.mapa {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
+
+.dados-contato {
+  flex: 1 1 40%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+}
+
+.dados-contato h2 {
+  margin-bottom: 10px;
+}
+
+.dados-contato p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(96, 96, 96, 0.5);
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+  color: rgb(129, 128, 128);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: rgb(129, 128, 128);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .conteudo-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-container,
+  .sobre-texto {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .espaco {
+    padding: 20px;
+  }
+
+  .hero {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compre On-Line - Ovos Campestre</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #9b9a9a, #706f6f, #ffffff);
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    header {
+      background-color: rgba(96, 96, 96, 0.5);
+      border-radius: 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logocampestre {
+      width: 180px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logocampestre:hover {
+      transform: scale(1.05);
+    }
+
+    nav a {
+      color: #fff;
+      background-color: #1e1e2f;
+      border-radius: 30px;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #555592;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8bc34a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-section {
+      margin-bottom: 40px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .btn-nao-me-interesso {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: red;
+      background: linear-gradient(to right, #f9f9f9, #eaeaea);
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: rgba(96, 96, 96, 0.5);
+      border-radius: 10px;
+      box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+      color: rgb(197, 194, 194);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: rgb(197, 194, 194);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleSection(tipo) {
+      const form = document.getElementById(`sec-${tipo}`);
+      const checkbox = document.getElementById(`no-${tipo}`);
+      form.style.display = checkbox.checked ? 'none' : 'block';
+    }
+
+    function enviarPedido() {
+      const nome = document.getElementById('nome').value.trim();
+      if (!nome) {
+        alert("Por favor, preencha seu nome.");
+        return;
+      }
+
+      let mensagem = `*Olá, aqui está o meu pedido:*\nNome: ${nome}\n`;
+
+      // PVC
+      if (!document.getElementById('no-pvc').checked) {
+        mensagem += `\n*PVC:*\n`;
+        mensagem += `Jumbo C/12: ${document.getElementById('jumboc/12PVC').value}\n`;
+        mensagem += `Jumbo C/20: ${document.getElementById('jumboc/20PVC').value}\n`;
+        mensagem += `Grande Branco C/12: ${document.getElementById('grandebrancoc/12PVC').value}\n`;
+        mensagem += `Grande Branco C/20: ${document.getElementById('grandebrancoc/20PVC').value}\n`;
+        mensagem += `Grande Branco C/30: ${document.getElementById('grandebrancoc/30PVC').value}\n`;
+        mensagem += `Jumbo Vermelho C/12: ${document.getElementById('jumbovermelhoc/12PVC').value}\n`;
+        mensagem += `Grande Vermelho C/12: ${document.getElementById('grandevermelhoc/12PVC').value}\n`;
+        mensagem += `Grande Vermelho C/20: ${document.getElementById('grandevermelhoc/20PVC').value}\n`;
+        mensagem += `Grande Vermelho C/30: ${document.getElementById('grandevermelhoc/30PVC').value}\n`;
+        mensagem += `Obs: ${document.getElementById('obsPVC').value}\n`;
+      }
+
+      // Granel
+      if (!document.getElementById('no-granel').checked) {
+        mensagem += `\n*Granel:*\n`;
+        mensagem += `Jumbo Branco: ${document.getElementById('jumbobrancoGranel').value}\n`;
+        mensagem += `Extra Branco: ${document.getElementById('extrabrancoGranel').value}\n`;
+        mensagem += `Tipo A Branco: ${document.getElementById('tipoAbrancoGranel').value}\n`;
+        mensagem += `Médios Branco: ${document.getElementById('mediobrancoGranel').value}\n`;
+        mensagem += `Casca Fina Branco: ${document.getElementById('cascafinabrancoGranel').value}\n`;
+        mensagem += `Jumbo Vermelho: ${document.getElementById('jumbovermelhoGranel').value}\n`;
+        mensagem += `Extra Vermelho: ${document.getElementById('extravermelhoGranel').value}\n`;
+        mensagem += `Tipo A Vermelho: ${document.getElementById('tipoAvermelhoGranel').value}\n`;
+        mensagem += `Obs: ${document.getElementById('obsGranel').value}\n`;
+      }
+ 
+      const fone = "+5518991669814";
+      const url = `https://wa.me/${fone}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <a href="#"><img src="logogranja.png" alt="Logo Granja" class="logocampestre" /></a>
+    <nav>
+      <ul>
+        <a href="index.html">Voltar ao Início</a>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h1>Compre On-line</h1>
+
+    <form onsubmit="event.preventDefault(); enviarPedido();">
+      <label for="nome">Seu nome:</label>
+      <input type="text" id="nome" required>
+
+      <!-- PVC -->
+      <div class="form-section">
+        <h3>Compra PVC</h3>
+        <label for="no-pvc" class="btn-nao-me-interesso">
+          <input type="checkbox" id="no-pvc" onchange="toggleSection('pvc')"> Não me interesso
+        </label>
+        <div id="sec-pvc">
+          <label for="jumboc/12PVC">Jumbo Branco C/12:</label>
+          <input type="number" id="jumboc/12PVC" min="0" value="0">
+
+          <label for="jumboc/20PVC">Jumbo Branco C/20:</label>
+          <input type="number" id="jumboc/20PVC" min="0" value="0">
+
+          <label for="grandebrancoc/12PVC">Grande Branco C/12:</label>
+          <input type="number" id="grandebrancoc/12PVC" min="0" value="0">
+
+          <label for="grandebrancoc/20PVC">Grande Branco C/20:</label>
+          <input type="number" id="grandebrancoc/20PVC" min="0" value="0">
+
+          <label for="grandebrancoc/30PVC">Grande Branco C/30</label>
+          <input type="number" id="grandebrancoc/30PVC" min="0" value="0">
+
+          <label for="jumbovermelhoc/12PVC">Jumbo Vermelho C/12</label>
+          <input type="number" id="jumbovermelhoc/12PVC" min="0" value="0">
+
+          <label for="grandevermelhoc/12">Grande Vermelho C/12</label>
+          <input type="number" id="grandevermelhoc/12PVC" min="0" value="0">
+
+          <label for="grandevermelhoc/20">Grande Vermelho C/20</label>
+          <input type="number" id="grandevermelhoc/20PVC" min="0" value="0">
+
+          <label for="grandevermelhoc/30">Grande Vermelho C/30</label>
+          <input type="number" id="grandevermelhoc/30PVC" min="0" value="0">
+
+          <label for="obsPVC">Observações (opcional):</label>
+          <textarea id="obsPVC" rows="4" placeholder="Endereço, dia de entrega, etc."></textarea>
+        </div>
+      </div>
+
+      <!-- GRANEL -->
+      <div class="form-section">
+        <h3>Compra Granel</h3>
+        <label for="no-granel" class="btn-nao-me-interesso">
+          <input type="checkbox" id="no-granel" onchange="toggleSection('granel')"> Não me interesso
+        </label>
+        <div id="sec-granel">
+            <h3>Ovos Branco</h3>
+          <label for="jumbobrancoGranel">Ovos Jumbo Branco:</label>
+          <input type="number" id="jumbobrancoGranel" min="0" value="0">
+
+          <label for="extrabrancoGranel">Ovos Extra Branco:</label>
+          <input type="number" id="extrabrancoGranel" min="0" value="0">
+
+          <label for="tipoAbrancoGranel">Ovos Tipo A Branco:</label>
+          <input type="number" id="tipoAbrancoGranel" min="0" value="0">
+
+          <label for="mediobrancoGranel">Ovos Médios Branco:</label>
+          <input type="number" id="mediobrancoGranel" min="0" value="0">
+
+          <label for="cascafinabrancoGranel">Ovos Casca Fina Branco:</label>
+          <input type="number" id="cascafinabrancoGranel" min="0" value="0">
+
+          <div class="space"></div>
+
+          <h3>Ovos Vermelhos</h3>
+          <label for="jumbovermelhoGranel">Ovos Jumbo Vermelho:</label>
+          <input type="number" id="jumbovermelhoGranel" min="0" value="0">
+
+          <label for="extravermelhoGranel">Ovos Extra Vermelho:</label>
+          <input type="number" id="extravermelhoGranel" min="0" value="0">
+
+          <label for="tipoAvermelhoGranel">Ovos Tipo A Vermelho:</label>
+          <input type="number" id="tipoAvermelhoGranel" min="0" value="0">
+
+
+          <label for="obsGranel">Observações (opcional):</label>
+          <textarea id="obsGranel" rows="4" placeholder="Endereço, dia de entrega, etc."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="button">Enviar pedido via WhatsApp</button>
+    </form>
+  </section>
+
+  <footer class="rodape">
+    <p>© 2025 Ovos Campestre - Todos os direitos reservados</p>
+    <p>Desenvolvido por <a href="https://wa.me/5518991669814" target="_blank">Vitor dos Santos</a></p>
+  </footer>
+</body>
+</html>

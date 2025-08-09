@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produto (Granel) - Ovos Campestre</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(to bottom right, #000000, #706f6f, #ffffff);
+      font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      background-color: rgba(96, 96, 96, 0.5);
+      border-radius: 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+    .logocampestre {
+      width: 180px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .logocampestre:hover {
+      transform: scale(1.05);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+    }
+    nav ul li a {
+      color: #fff;
+      background-color: #1e1e2f;
+      border-radius: 30px;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background-color: #555592;
+    }
+    .provisorio {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 100px;
+      user-select: none;
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const links = document.querySelectorAll('a[href]');
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (!href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 500);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <a href="#">
+      <img src="logogranja.png" alt="Logo Granja" class="logocampestre" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Voltar ao Início</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="provisorio">
+    <p>Em breve</p>
+  </section>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>  
